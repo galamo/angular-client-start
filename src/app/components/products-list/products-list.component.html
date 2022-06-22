@@ -1,6 +1,16 @@
 <div>
-  <div style="width: 30%" *ngFor="let product of productsList; let i = index">
-    <mat-card class="example-card">
+  <h1>Number of products in cart: {{ cart.length }}</h1>
+  <div
+    style="width: 30%"
+    *ngFor="let product of productsList; let i = index"
+    (click)="selectProduct(product.id)"
+  >
+    <mat-card
+      class="example-card"
+      [ngStyle]="{
+        'background-color': selectedProduct === product.id ? 'yellow' : 'white'
+      }"
+    >
       <mat-card-header>
         <div mat-card-avatar class="example-header-image">{{ product.id }}</div>
         <mat-card-title>{{ product.title }}</mat-card-title>
@@ -19,7 +29,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>Add To Cart</button>
+        <button mat-button (click)="addToCart(product)">Add To Cart</button>
       </mat-card-actions>
     </mat-card>
   </div>

@@ -7,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent {
   public productsList: Array<any>;
+  public selectedProduct: number;
+  public cart: Array<any>;
   constructor() {
     this.productsList = data.products;
+    this.selectedProduct = -1
+    this.cart = []
   }
 
+  selectProduct(id: number): void {
+    this.selectedProduct = id
+  }
 
+  addToCart(p: any) {
+    this.cart.push(p)
+  }
 
 }
 
