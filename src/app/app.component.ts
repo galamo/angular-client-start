@@ -13,7 +13,4 @@ export class AppComponent {
     this.text = "contact info: aviv@gmail.com"
   }
 
-  getHeader() {
-    return this.header;
-  }
 }
