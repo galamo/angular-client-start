@@ -4,7 +4,10 @@ class="example-card" [style]="{'background-color': selectedProductId === product
 <mat-card-header>
   <div mat-card-avatar class="example-header-image">{{ productObjInput.id }}</div>
   <mat-card-title>{{ productObjInput.title }}</mat-card-title>
-  <mat-card-subtitle *ngIf="productObjInput.price < 300">{{
+  <mat-card-subtitle *ngIf="productObjInput.price < 300 && showCoupon">{{
+    productObjInput.price  | coupon | currency: "ILS" 
+  }}</mat-card-subtitle>
+  <mat-card-subtitle *ngIf="productObjInput.price < 300 && !showCoupon">{{
     productObjInput.price | currency: "ILS"
   }}</mat-card-subtitle>
   <mat-card-subtitle *ngIf="productObjInput.price >= 300">Contact us for price</mat-card-subtitle>
@@ -22,7 +25,9 @@ class="example-card" [style]="{'background-color': selectedProductId === product
 <mat-card-actions>
   <button mat-button (click)="addToCart(productObjInput)">Add To Cart</button>
   <button mat-button color="warn" (click)="deleteProduct(productObjInput)">Delete</button>
+  <button mat-button color="info" (click)="showCouponAction()">{{DiscountText}}</button>
 
+  
 </mat-card-actions>
 </mat-card>
 </div>

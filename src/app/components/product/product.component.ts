@@ -10,12 +10,20 @@ export class ProductComponent implements OnInit {
   @Input() selectedProductId: number = -1
   @Input() indexInput: number = 0  
   @Output() deleteEvent = new EventEmitter<number>(); 
-  @Output() selectProduct = new EventEmitter<number>(); 
-  constructor() { }
+  @Output() selectProduct = new EventEmitter<number>();
+  public showCoupon:boolean 
+  public DiscountText:string
+  constructor() {
+    this.showCoupon = false;
+    this.DiscountText = "Get Discount"
+   }
 
   ngOnInit(): void {
   }
-
+showCouponAction(){
+    this.showCoupon = !this.showCoupon
+    this.DiscountText = this.showCoupon ? "Full Price" : "Get Discount"
+}
   addToCart(p:any){
     this.selectProduct.emit(p.id as number)
   }
