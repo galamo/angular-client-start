@@ -23,6 +23,11 @@ export class ProductsListComponent {
     this.cart.push(p)
   }
 
+  deleteProduct(id:number){
+    const newProducts = this.productsList.filter(p=>p.id !== id)
+    this.productsList = newProducts
+  }
+
 }
 
 
