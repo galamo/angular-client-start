@@ -7,22 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent {
   public productsList: Array<any>;
-  public selectedProduct: number;
+  public selectedProductId: number;
+  public query: string;
+  public by: string;
+  
   public cart: Array<any>;
   constructor() {
     this.productsList = data.products;
-    this.selectedProduct = -1
+    this.selectedProductId = -1
     this.cart = []
+    this.query = ""
+    this.by = "title"
   }
 
   selectProduct(id: number): void {
-    this.selectedProduct = id
+    this.selectedProductId = id
   }
 
   addToCart(p: any) {
     this.cart.push(p)
   }
-
+  
   deleteProduct(id:number){
     const newProducts = this.productsList.filter(p=>p.id !== id)
     this.productsList = newProducts

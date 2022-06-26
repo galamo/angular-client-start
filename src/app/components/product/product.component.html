@@ -1,12 +1,13 @@
-<div style="width: 30%">
+<div style="width: 30%" >
     <mat-card
-class="example-card">
+class="example-card" [style]="{'background-color': selectedProductId === productObjInput.id ? 'red' : 'white'}">
 <mat-card-header>
   <div mat-card-avatar class="example-header-image">{{ productObjInput.id }}</div>
   <mat-card-title>{{ productObjInput.title }}</mat-card-title>
-  <mat-card-subtitle>{{
+  <mat-card-subtitle *ngIf="productObjInput.price < 300">{{
     productObjInput.price | currency: "ILS"
   }}</mat-card-subtitle>
+  <mat-card-subtitle *ngIf="productObjInput.price >= 300">Contact us for price</mat-card-subtitle>
 </mat-card-header>
 <img
   mat-card-image
@@ -21,6 +22,7 @@ class="example-card">
 <mat-card-actions>
   <button mat-button (click)="addToCart(productObjInput)">Add To Cart</button>
   <button mat-button color="warn" (click)="deleteProduct(productObjInput)">Delete</button>
+
 </mat-card-actions>
 </mat-card>
 </div>

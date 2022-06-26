@@ -8,6 +8,7 @@ import { MatCardModule } from "@angular/material/card"
 import { MatButtonModule } from "@angular/material/button";
 import { ProductComponent } from './components/product/product.component'
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './components/pipes/search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     DateComponent,
     ProductsListComponent,
     ProductComponent,
-
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
