@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-products-list',
@@ -11,11 +12,10 @@ export class ProductsListComponent {
   public query: string;
   public by: string;
   
-  public cart: Array<any>;
-  constructor() {
+  constructor(public cartService:CartService) {
     this.productsList = data.products;
     this.selectedProductId = -1
-    this.cart = []
+    
     this.query = ""
     this.by = "title"
   }
@@ -25,7 +25,7 @@ export class ProductsListComponent {
   }
 
   addToCart(p: any) {
-    this.cart.push(p)
+    this.cartService.addProduct(p)
   }
   
   deleteProduct(id:number){

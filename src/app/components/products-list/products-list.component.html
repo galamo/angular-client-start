@@ -1,11 +1,11 @@
 <div>
-  <h1>Number of products in cart: {{ cart.length }}</h1>
+  <h1>Number of products in cart: {{ this.cartService.getProducts().length }}</h1>
   Search: <input [(ngModel)]="query" /> {{query}} 
   By: <input [(ngModel)]="by" /> {{by}} 
 <app-product *ngFor="let product of productsList | searchQuery:query:by" 
 [selectedProductId]="selectedProductId"
  (deleteEvent)="deleteProduct($event)" 
- (selectProduct)="selectProduct($event)" 
+ (selectProduct)="addToCart($event)"
  [productObjInput]="product"   >
 </app-product>
 </div>

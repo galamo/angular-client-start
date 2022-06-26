@@ -10,7 +10,7 @@ export class ProductComponent implements OnInit {
   @Input() selectedProductId: number = -1
   @Input() indexInput: number = 0  
   @Output() deleteEvent = new EventEmitter<number>(); 
-  @Output() selectProduct = new EventEmitter<number>();
+  @Output() selectProduct = new EventEmitter<any>();
   public showCoupon:boolean 
   public DiscountText:string
   constructor() {
@@ -25,7 +25,7 @@ showCouponAction(){
     this.DiscountText = this.showCoupon ? "Full Price" : "Get Discount"
 }
   addToCart(p:any){
-    this.selectProduct.emit(p.id as number)
+    this.selectProduct.emit(p)
   }
   deleteProduct(p:any){
     this.deleteEvent.emit(p.id as number)
