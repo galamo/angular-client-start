@@ -5,20 +5,24 @@ import { DateComponent } from './components/date/date.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card"
-import { MatButtonModule } from "@angular/material/button"
+import { MatButtonModule } from "@angular/material/button";
+import { ProductComponent } from './components/product/product.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     DateComponent,
     ProductsListComponent,
+    ProductComponent,
 
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
