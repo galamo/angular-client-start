@@ -1,0 +1,9 @@
+<div>
+  <h1>Search Product</h1>
+  <input [(ngModel)]="productId" (keyup)="search(productId)" />
+  <h2>with debounce</h2>
+  <!-- <input #searchBox id="search-box" (input)="search2(searchBox.value)" /> -->
+  <input [(ngModel)]="productId2" (keyup)="search2(productId2)" />
+  <div *ngIf="this.isLoadingSearch"><mat-spinner></mat-spinner></div>
+  <app-product *ngIf="product" [productObjInput]="product"> </app-product>
+</div>
