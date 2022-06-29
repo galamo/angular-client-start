@@ -31,6 +31,7 @@ export class SearchProductComponent implements OnInit {
   }
 
   search2(term: number | undefined): void {
+    console.log(term)
     this.searchTerms.next(term);
   }
 

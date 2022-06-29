@@ -20,6 +20,7 @@ import { AppRoutingModule } from './routing/app.routing.module';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ToolbarComponent } from './components/app-components/toolbar/toolbar.component';
 import { CartComponent } from './components/cart/cart.component';
+import { SearchProductComponent } from './components/search-product/search-product.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CartComponent } from './components/cart/cart.component';
     SettingsComponent,
     ToolbarComponent,
     CartComponent,
+    SearchProductComponent,
   ],
   imports: [
     BrowserModule,

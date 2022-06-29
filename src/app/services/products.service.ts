@@ -19,5 +19,9 @@ export class ProductsService {
     return this.httpClient.get(url)
   }
 
+  searchProduct(id:number){
+    return this.httpClient.get(`${url}/${id}`)
+  }
+
 
 }
