@@ -11,6 +11,8 @@ export class ProductComponent implements OnInit {
   @Input() indexInput: number = 0  
   @Output() deleteEvent = new EventEmitter<number>(); 
   @Output() selectProduct = new EventEmitter<any>();
+  @Output() doGeneralAction = new EventEmitter<any>();
+  @Input() doGeneralActionText: string = "" 
   public showCoupon:boolean 
   public DiscountText:string
   constructor() {
@@ -29,6 +31,9 @@ showCouponAction(){
   }
   deleteProduct(p:any){
     this.deleteEvent.emit(p.id as number)
+  }
+  doAction(p:any){
+        this.doGeneralAction.emit(p)
   }
 }
 

@@ -24,4 +24,9 @@ export class CartService {
     return this.totalPrice
    }
 
+   removeFromProduct(pr:any){
+      const newData =  this.cart.filter(p=>p.id !== pr.id)
+      this.cart = newData
+   }
+
 }

@@ -6,7 +6,10 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card"
 import { MatToolbarModule } from "@angular/material/toolbar"
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
 import { MatIconModule } from "@angular/material/icon"
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { MatButtonModule } from "@angular/material/button";
 import { ProductComponent } from './components/product/product.component'
@@ -16,6 +19,8 @@ import { CouponPipe } from './components/pipes/coupon/coupon.pipe';
 import { AppRoutingModule } from './routing/app.routing.module';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ToolbarComponent } from './components/app-components/toolbar/toolbar.component';
+import { CartComponent } from './components/cart/cart.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { ToolbarComponent } from './components/app-components/toolbar/toolbar.co
     CouponPipe,
     SettingsComponent,
     ToolbarComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,8 @@ import { ToolbarComponent } from './components/app-components/toolbar/toolbar.co
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

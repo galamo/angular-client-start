@@ -1,11 +1,22 @@
 <div>
-  <h1>Number of products in cart: {{ this.cartService.getProducts().length }}</h1>
-  Search: <input [(ngModel)]="query" /> {{query}} 
-  By: <input [(ngModel)]="by" /> {{by}} 
-<app-product *ngFor="let product of productsList | searchQuery:query:by" 
-[selectedProductId]="selectedProductId"
- (deleteEvent)="deleteProduct($event)" 
- (selectProduct)="addToCart($event)"
- [productObjInput]="product"   >
-</app-product>
+  <h1>Product List</h1>
+  Search: <input [(ngModel)]="query" /> {{ query }} By:
+  <input [(ngModel)]="by" /> {{ by }}
+  <div *ngIf="this.isLoadingProducts"><mat-spinner></mat-spinner></div>
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
+    <button (click)="this.getProductsAsync()" mat-button color="info">
+      Click here to retry
+    </button>
+  </div>
+  <app-product
+    *ngFor="let product of productsList | searchQuery: query:by"
+    [selectedProductId]="selectedProductId"
+    [doGeneralActionText]="'Add to Cart'"
+    (deleteEvent)="deleteProduct($event)"
+    (selectProduct)="addToCart($event)"
+    [productObjInput]="product"
+    (doGeneralAction)="addToCart($event)"
+  >
+  </app-product>
 </div>

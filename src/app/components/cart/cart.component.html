@@ -1,0 +1,15 @@
+<div>
+  <h1>Cart Page</h1>
+  <div>
+    <h1>
+      Number of products in cart: {{ this.cartService.getProducts().length }}
+    </h1>
+    <app-product
+      *ngFor="let product of this.cartService.getProducts()"
+      [productObjInput]="product"
+      (doGeneralAction)="removeFromCart($event)"
+      [doGeneralActionText]="'Remove from cart'"
+    >
+    </app-product>
+  </div>
+</div>

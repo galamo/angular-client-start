@@ -1,6 +1,6 @@
-
-    <mat-toolbar color="primary" style="position:sticky" >
-        <a class="linkItem" routerLink="/" > Products </a>
-        <a class="linkItem" routerLink="/settings"> Settings </a>
-        <span> {{this.cartService.getTotalPrice()}} </span>
-    </mat-toolbar>
+<mat-toolbar color="primary" style="position: sticky">
+  <a class="linkItem" routerLink="/"> Products </a>
+  <a class="linkItem" routerLink="/settings"> Settings </a>
+  <a class="linkItem" routerLink="/cart"> Cart </a>
+  <span> {{ this.cartService.getTotalPrice() }} </span>
+</mat-toolbar>
